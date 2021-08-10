@@ -1,0 +1,19 @@
+.food-options h6{
+    margin: 0px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.active-food-option{
+    color: #f91944;
+    border-bottom: 2px solid #f91944;
+}
+.checkout-btn{
+    background-color: rgb(199, 199, 199);
+    color: rgb(56, 56, 56);
+    border: 0;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+.foodmenu{
+    text-align: center;
+}

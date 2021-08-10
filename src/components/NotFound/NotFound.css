@@ -1,0 +1,9 @@
+.not-found{
+    text-align: center;
+}
+.error-text{
+    color: red;
+}
+.not-found a{
+    color: gray;
+}

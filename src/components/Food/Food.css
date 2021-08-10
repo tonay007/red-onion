@@ -1,0 +1,14 @@
+.food{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.food img{
+    width: 50%;
+}
+.food p{
+    margin: 0;
+}
+.food h6, .food h5{
+    font-weight: bold;
+    margin: 0;
+}
