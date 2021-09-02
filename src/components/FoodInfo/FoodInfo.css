@@ -1,0 +1,47 @@
+.food-info {
+    padding: 30px 80px;
+}
+
+.food-info .text {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.food-info #food-quantity {
+    border: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.food-info .quantity-control {
+    border: 0;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: #f91944;
+    font-weight: bold;
+}
+
+.food-info .qc-minus {
+    border-bottom-left-radius: 2em;
+    border-top-left-radius: 2em;
+}
+
+.food-info .qc-plus {
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+.food-info .quantity-select {
+    border: 1px solid grey;
+    border-radius: 2em;
+}
+.food-info .add-rmv-btn{
+    background-color: #f91944;
+    border-radius: 2em;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+}

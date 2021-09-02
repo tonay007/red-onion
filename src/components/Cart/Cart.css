@@ -1,0 +1,32 @@
+.cart {
+    margin-top: 30px;
+}
+
+.cart input {
+    background-color: rgb(238, 238, 238) !important;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.cart .submit {
+    width: 100%;
+    background-color: #f91944 !important;
+    padding: 7px 0px;
+    color: white;
+}
+
+.cart .food-item input {
+    width: 40px;
+    height: 40px;
+}
+
+.cart .food-item button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background-color: white;
+}
+
+.food-item .quantity-control {
+    border-radius: 10px;
+}

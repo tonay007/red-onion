@@ -1,6 +1,7 @@
 .food{
     text-align: center;
     margin-bottom: 20px;
+    color: black !important;
 }
 .food img{
     width: 50%;

@@ -3,8 +3,9 @@ import './Navbar.css';
 import logo from '../../img/navlogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -18,13 +19,13 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a href="/cart"><FontAwesomeIcon icon={faShoppingCart} /></a>
+                                <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>  {props.cart.length}
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="/login">Login</a>
+                                <Link className="nav-link" aria-current="page" to="/login">Login</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/login"><button className="sign-up-btn">Sign Up</button></a>
+                                <Link className="nav-link" to="/login"><button className="sign-up-btn">Sign Up</button></Link>
                             </li>
                         </ul>
                     </div>

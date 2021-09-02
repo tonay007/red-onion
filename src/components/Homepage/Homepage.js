@@ -4,12 +4,12 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import WhyYouChooseUs from '../WhyYouChooseUs/WhyYouChooseUs';
 
-const Homepage = () => {
+const Homepage = (props) => {
     return (
         <>
             <Header></Header>
             <br /><br />
-            <FoodMenu></FoodMenu>
+            <FoodMenu cart={props.cart}></FoodMenu>
             <br /><br />
             <WhyYouChooseUs></WhyYouChooseUs>
             <br /><br />
