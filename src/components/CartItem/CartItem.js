@@ -6,12 +6,18 @@ const CartItem = (props) => {
     const [fdCount, setFdCount] = useState(count);
     const changeCount = action => {
         action === "plus" ? setFdCount(fdCount + 1) : setFdCount(fdCount - 1);
+        sendToStore(cartId, productId, fdCount);
     };
     const matchedFood = allFoods.find(food => food.key === productId);
     const changeToCustomValue = e => {
         const value = parseInt(e.target.value);
         value ? setFdCount(value) : setFdCount(1);
+        sendToStore(cartId, productId, fdCount);
     };
+    const sendToStore = (cid, pid, pdc) => {
+        props.cart.removeFromCart(cid);
+        props.cart.addToCart(pid, pdc);
+    }
     return (
         <div className="bg-light">
             <div className="row food-item mt-3">
@@ -25,7 +31,7 @@ const CartItem = (props) => {
                     </div>
                 </div>
                 <div className="col-4 d-flex quantity-control">
-                    <button onClick={() => {changeCount("minus")}}>- </button> <input onChange={changeToCustomValue} value={fdCount} type="text" className="text-center" /> <button onClick={() => {changeCount("plus")}}> +</button>
+                    <button onClick={() => {changeCount("minus")}}>- </button> <input onChange={changeToCustomValue} value={count} type="text" className="text-center" /> <button onClick={() => {changeCount("plus")}}> +</button>
                 </div>
                 <div className="col-1">
                     <button onClick={()=>props.cart.removeFromCart(cartId)}>X</button>

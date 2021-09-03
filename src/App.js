@@ -4,24 +4,31 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import Homepage from './components/Homepage/Homepage';
-import Navbar from './components/Navbar/Navbar';
+import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
-import { addToCart, orderInfo, removeFromCart } from './redux/actions/cartActions';
+import OrderPlaced from './components/OrderPlaced/OrderPlaced';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { addToCart, orderInfo, removeFromCart, setUserInfo } from './redux/actions/cartActions';
 
 const App = (props) => {
   return (
     <Router>
       <div className="app">
-        <Navbar cart={props.cart}></Navbar>
         <Switch>
-          <Route path="/cart">
-            <Cart cart={props}></Cart>
+          <PrivateRoute user={props.userInfo} path="/cart">
+            <Cart setUserInfo={props.setUserInfo} userInfo={props.userInfo} cart={props}></Cart>
+          </PrivateRoute>
+          <Route path="/login">
+            <Login setUserInfo={props.setUserInfo} userInfo={props.userInfo}></Login>
           </Route>
+          <PrivateRoute user={props.userInfo} path="/order-placed">
+            <OrderPlaced props={props}></OrderPlaced>
+          </PrivateRoute>
           <Route exact path="/">
-            <Homepage cart={props}></Homepage>
+            <Homepage setUserInfo={props.setUserInfo} userInfo={props.userInfo} cart={props}></Homepage>
           </Route>
           <Route path="*">
-            <NotFound></NotFound>
+            <NotFound setUserInfo={props.setUserInfo} userInfo={props.userInfo} cart={props}></NotFound>
           </Route>
         </Switch>
       </div>
@@ -32,14 +39,16 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart,
-    infos: state.infos
+    infos: state.infos,
+    userInfo: state.userInfo
   };
 };
 
 const mapDispatchToProps = {
   addToCart: addToCart,
   removeFromCart: removeFromCart,
-  orderInfo: orderInfo
+  orderInfo: orderInfo,
+  setUserInfo: setUserInfo
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

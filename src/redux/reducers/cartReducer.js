@@ -1,8 +1,14 @@
-import { ADD_TO_CART, ORDER_INFO, REMOVE_FROM_CART } from "../actions/cartActions";
+import { ADD_TO_CART, ORDER_INFO, REMOVE_FROM_CART, SET_USER_INFO } from "../actions/cartActions";
 
 const initialState = {
     cart: [],
-    infos: {}
+    infos: {},
+    userInfo: {
+        isLoggedIn: false,
+        name: '',
+        email: '',
+        password: ''
+    }
 }
 const cartReducers = (state = initialState, action) => {
     switch (action.type) {
@@ -20,7 +26,10 @@ const cartReducers = (state = initialState, action) => {
             return { ...state, cart: remainingCart };
         case ORDER_INFO:
             const infos = action.infos;
-            return {...state, infos: infos}
+            return { ...state, infos: infos };
+        case SET_USER_INFO:
+            const userInfo = action.userInfo;
+            return { ...state, userInfo: userInfo }
         default:
             return state;
     }

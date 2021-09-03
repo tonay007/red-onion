@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import allFoods from 'src/data/allFoods';
 import CartItem from '../CartItem/CartItem';
+import Navbar from '../Navbar/Navbar';
 import './Cart.css';
 
 const Cart = (props) => {
@@ -10,10 +13,20 @@ const Cart = (props) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.cart.orderInfo(orderInfo)
+        props.cart.orderInfo(orderInfo);
     }
+    let subTotal = 0;
+    props.cart.cart.map(item => {
+        subTotal = subTotal + allFoods.find(food=> item.productId === food.key).price * item.count;
+        return 1;
+    })
+    subTotal = parseFloat(subTotal.toFixed(2));
+    const VAT = parseFloat((subTotal*0.05).toFixed(2));
+    const deliveryFee = parseFloat((subTotal*0.02).toFixed(2));
+    const total = parseFloat((subTotal + VAT + deliveryFee).toFixed(2))
     return (
         <div className="cart container">
+            <Navbar setUserInfo={props.setUserInfo} userInfo={props.userInfo} cart={props.cart.cart}></Navbar>
             {props.cart.cart.length ? <div className="row">
                 <div className="col-md-5 col-12 me-5">
                     <h5>Edit Delivery Details</h5>
@@ -34,7 +47,13 @@ const Cart = (props) => {
                     {
                         props.cart.cart.map(item => <CartItem key={item.productId} cart={props.cart} item={item}></CartItem>)
                     }
-
+                    <h6 className="mt-5">Subtotal: {subTotal}$</h6>
+                    <h6>VAT (5%): {VAT}$</h6>
+                    <h6>Delivery Fee: {deliveryFee}$</h6>
+                    <h6>Total: {total}$</h6>
+                    {
+                        props.cart.infos.district && <Link style={{textDecoration: "none"}} to="/order-placed"><button className="btn btn-danger w-100">Place Order</button></Link>
+                    }
                 </div>
             </div>: <h1>No item in cart</h1>}
         </div>
