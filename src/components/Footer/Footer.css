@@ -10,3 +10,15 @@
 .footer p{
     cursor: pointer;
 }
+@media screen and (max-width: 500px){
+    .footer{
+        text-align: center;
+    }
+    .footer img{
+        width: 150px;
+        margin-bottom: 30px;
+    }
+    .footer small{
+        display: none;
+    }
+}

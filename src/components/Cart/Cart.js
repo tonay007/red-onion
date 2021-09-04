@@ -52,7 +52,7 @@ const Cart = (props) => {
                     <h6>Delivery Fee: {deliveryFee}$</h6>
                     <h6>Total: {total}$</h6>
                     {
-                        props.cart.infos.district && <Link style={{textDecoration: "none"}} to="/order-placed"><button className="btn btn-danger w-100">Place Order</button></Link>
+                        props.cart.infos.district && <Link style={{textDecoration: "none"}} to="/order-placed"><button className="btn btn-danger w-100 mb-5">Place Order</button></Link>
                     }
                 </div>
             </div>: <h1>No item in cart</h1>}

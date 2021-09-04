@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row pt-5 pb-5">
                     <div className="col-md-6">
-                        <img width="120px" src={footerLogo} alt="Logo" />
+                        <img width="120px" src={footerLogo} alt="Logo" className="logo" />
                     </div>
                     <div className="col-md-3">
                         <ul>

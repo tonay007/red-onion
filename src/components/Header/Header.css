@@ -35,3 +35,15 @@ input:focus{
     padding: 10px 30px;
     width: 60%;
 }
+
+@media screen and (max-width: 513px) {
+    .header {
+        padding: 20px;
+    }
+    .search-bar{
+        width: 100%;
+    }
+    .header form{
+        width: 100% !important;
+    }
+}

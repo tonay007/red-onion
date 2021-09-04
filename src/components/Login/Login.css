@@ -20,7 +20,7 @@
 }
 
 .login-container button{
-    border: 0vmax;
+    border: 0;
 }
 
 .login-container{
@@ -28,4 +28,23 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+@media screen and (max-width: 1000px) {
+    .login-container .login {
+        background-color: transparent;
+        border-radius: 10px;
+        width: 80vw;
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .login-container .login {
+        background-color: transparent;
+        border-radius: 10px;
+        width: 95vw;
+        padding: 20px;
+    }
+    .login-container img{
+        width: 60vw;
+    }
 }

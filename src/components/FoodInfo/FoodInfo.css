@@ -24,13 +24,11 @@
 }
 
 .food-info .qc-minus {
-    border-bottom-left-radius: 2em;
-    border-top-left-radius: 2em;
+    border-radius: 2em;
 }
 
 .food-info .qc-plus {
-    border-top-right-radius: 2em;
-    border-bottom-right-radius: 2em;
+    border-radius: 2em;
 }
 
 .food-info .quantity-select {
@@ -44,4 +42,21 @@
     padding: 10px 30px;
     border: none;
     color: white;
+}
+@media screen and (max-width: 415px) and (min-width: 321px) {
+    .food-info .d-flex{
+        display: block !important;
+    }
+    .food-info .quantity-select {
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 15px !important;
+    }
+}
+@media screen and (max-width: 415px){
+    .food-info img{
+        width: 100% !important;
+        margin-top: 40px !important;
+        margin-bottom: 0px !important;
+    }
 }
